@@ -1,0 +1,14 @@
+@import "../../styles/default.scss";
+
+.App {
+  @extend %flexRow;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.Paper {
+  @extend %flexColumn;
+  align-items: flex-start;
+  justify-content: flex-start;
+}

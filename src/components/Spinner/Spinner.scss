@@ -1,0 +1,30 @@
+@import "../../styles/default.scss";
+
+.SpinnerBox {
+  @extend %flexColumn;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Spinner {
+  display: block;
+  font-size: calc($header-size * 3);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Spinner {
+    animation: spinner-spin infinite 2s linear;
+  }
+
+  @keyframes spinner-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

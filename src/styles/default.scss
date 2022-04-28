@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
+
+$text-size: 13px;
+$header-size: 14px;
+$pagerPage-size: 18px;
+$pagerText-size: 24px;
+$line-height: 137.69%;
+
+$gray: #474955;
+$green: #7EBC3C;
+$searchbg: #5A5C66;
+$searchtxt: #B2B7BF;
+
+$border: 1px solid #E3E6EC;
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%flexRow {
+  display: flex;
+  flex-direction: row;
+}
