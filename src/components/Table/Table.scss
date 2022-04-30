@@ -1,12 +1,21 @@
 @import "../../styles/default.scss";
 
-table {
+.Table {
+  @extend %flexColumn;
+  @extend %block;
+  align-items: stretch;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
+  height: $tableHeight;
+  max-height: $tableHeight;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+table {
   border-spacing: 0;
   border-collapse: collapse; 
-  height: 50vh;
-  max-height: 50vh;
 }
 
 thead {

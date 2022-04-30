@@ -16,13 +16,13 @@ const TableContents = ({ data }: ITableContents) => {
     <table>
       <thead>
         <tr>
-          <th>
+          <th style={{width: "10%"}}>
             <SortHeader key={"TH_ID"} name="ID" sort={"id"} />
           </th>
-          <th>
+          <th style={{width: "30%"}}>
             <SortHeader key={"TH_HEAD"} name="Заголовок" sort={"title"} />
           </th>
-          <th>
+          <th style={{width: "60%"}}>
             <SortHeader key={"TH_DESCRIPTION"} name="Описание" sort={"body"} />
           </th>
         </tr>
@@ -104,11 +104,13 @@ const Table = () => {
 
   return (
     <>
-      {current > 0 && current <= last ? (
-        <TableContents data={data} />
-      ) : (
-        <TablePlaceholder />
-      )}
+      <div className="Table">
+        {current > 0 && current <= last ? (
+          <TableContents data={data} />
+        ) : (
+          <TablePlaceholder />
+        )}
+      </div>
       <Pager current={current} last={last} />
     </>
   );
