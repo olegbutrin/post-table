@@ -28,4 +28,6 @@ export type TSortDirection = "asc" | "desc";
 export type TAppstore = {
   sortType: TSortType;
   sortDirection: TSortDirection;
+  searchText: string;
+  rowCount: number;
 }

@@ -6,7 +6,7 @@ $pagerPage-size: 18px;
 $pagerText-size: 24px;
 $line-height: 137.69%;
 
-$small: 320px;
+$small: 560px;
 $large: 1080px;
 
 @mixin respond-to($media) {
@@ -58,6 +58,7 @@ $green: #7ebc3c;
 $searchbg: #5a5c66;
 $searchtxt: #b2b7bf;
 $alert: red;
+$highlight: #eeeeee;
 
 $border: 1px solid #e3e6ec;
 
