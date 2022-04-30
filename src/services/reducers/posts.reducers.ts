@@ -19,7 +19,7 @@ export const postsReducer: Reducer<TPostsStore, TPostsActions> = (
     case constants.POSTS_ERROR:
       return { ...state, request: false, error: action.payload };
     case constants.POSTS_SUCCESS:
-      return { ...state, request: false, error: "", users: action.payload };
+      return { ...state, request: false, error: "", posts: action.payload };
     default:
       return state;
   }

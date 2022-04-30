@@ -1,0 +1,42 @@
+@import "../../styles/default.scss";
+
+table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse; 
+  height: 50vh;
+  max-height: 50vh;
+}
+
+thead {
+  border: 0;
+  vertical-align: middle;
+  box-shadow: 0px 4px 27px rgba(230, 231, 234, 0.78);
+}
+
+thead th {
+  background-color: $gray;
+  padding: 19px 16px 16px 16px;
+}
+
+tbody td {
+  border: $border;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.TablePlaceholder {
+  font-size: $pagerText-size;
+  line-height: $line-height;
+  font-weight: 600;
+  text-align: center;
+  background-color: $alert;
+  color: white;
+  width: 100%;
+  padding: 24px;
+}

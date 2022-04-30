@@ -1,0 +1,47 @@
+@import "../../styles/default.scss";
+
+.Pager {
+  @extend %flexRow;
+  @extend %block;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.PagerText,
+.PagerText:visited,
+.PagerText:link {
+  font-size: $pagerText-size;
+  line-height: $line-height;
+  font-weight: 500;
+  color: $gray;
+  padding: 0px 32px;
+  user-select: none;
+}
+
+.PagerPage,
+.PagerPage:visited,
+.PagerPage:link {
+  font-size: $pagerPage-size;
+  line-height: $line-height;
+  font-weight: 700;
+  font-style: italic;
+  color: $gray;
+  vertical-align: bottom;
+}
+
+.PagerPage > * {
+  margin: 0px 4px;
+}
+
+.active {
+  color: $green;
+}
+
+.last {
+  color: $searchtxt;
+}
+
+a {
+  text-decoration: none;
+}

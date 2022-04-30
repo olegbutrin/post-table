@@ -1,2 +1,3 @@
-export const APP_SORT: "APP_SORT" = "APP_SORT";
-export const APP_SEARCH: "APP_SEARCH"=  "APP_SEARCH";
+export const SET_SORT_TYPE: "SET_SORT_TYPE" = "SET_SORT_TYPE";
+export const SET_SORT_DIRECTION: "SET_SORT_DIRECTION" = "SET_SORT_DIRECTION";
+ 

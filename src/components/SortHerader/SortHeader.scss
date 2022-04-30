@@ -1,0 +1,41 @@
+@import "../../styles/default.scss";
+
+.SortHeader {
+  @extend %flexRow;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.Active {
+  color: $green;
+}
+
+.SortHeaderText {
+  font-size: $header-size;
+  line-height: $line-height;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.asc, .desc {
+  margin-left: 24px;
+}
+
+.asc::after,
+.desc::after {
+  content: "❯";
+  display: inline-block;
+  font-size: $header-size;
+  line-height: $line-height;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.asc::after {
+  transform: rotate(90deg);
+}
+
+.desc::after {
+  transform: rotate(-90deg);
+}
