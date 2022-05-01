@@ -58,6 +58,9 @@ const App = () => {
         {!request && error && <ErrorContents />}
         {!request && !error && <RoutedContents />}
       </div>
+      <div className="sourceLink">
+        <a href="https://github.com/olegbutrin/post-table" target={"_blank"} rel="noreferrer">[source code]</a>
+      </div>
     </div>
   );
 };
