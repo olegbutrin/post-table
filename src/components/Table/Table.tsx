@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "../../services/hooks";
 import { TRawPost } from "../../utils/types";
@@ -6,6 +6,40 @@ import SortHeader from "../SortHerader/SortHeader";
 import Pager from "../Pager/Pager";
 
 import "./Table.scss";
+
+interface ITableRowComponent {
+  index: number;
+  changed: boolean;
+  id: number;
+  userId: number;
+  title: Array<React.ReactFragment>;
+  body: Array<React.ReactFragment>;
+}
+
+const TableRow = ({
+  index,
+  changed,
+  id,
+  userId,
+  title,
+  body,
+}: ITableRowComponent) => {
+  return (
+    <tr className={changed ? "highlight" : ""} data-user={userId}>
+      <td key={"RC_ID"} className="centered">{id}</td>
+      <td key={"RC_TITLE"}>
+        {title.map((item) => {
+          return item;
+        })}
+      </td>
+      <td key={"RC_BODY"}>
+        {body.map((item) => {
+          return item;
+        })}
+      </td>
+    </tr>
+  );
+};
 
 interface ITableContents {
   data: Array<TRawPost>;
@@ -35,7 +69,11 @@ const TableContents = ({ data, searchText }: ITableContents) => {
                 .reduce((arr: Array<any>, item, index, src) => {
                   arr.push(item);
                   if (index < src.length - 1) {
-                    arr.push(<span key={"ST_" + index} className="search">{searchText}</span>);
+                    arr.push(
+                      <span key={"ST_" + index} className="search">
+                        {searchText}
+                      </span>
+                    );
                   }
                   return arr;
                 }, [])
@@ -46,30 +84,26 @@ const TableContents = ({ data, searchText }: ITableContents) => {
                 .reduce((arr: Array<any>, item, index, src) => {
                   arr.push(item);
                   if (index < src.length - 1) {
-                    arr.push(<span key={"ST_" + index} className="search">{searchText}</span>);
+                    arr.push(
+                      <span key={"ST_" + index} className="search">
+                        {searchText}
+                      </span>
+                    );
                   }
                   return arr;
                 }, [])
             : [item.body];
           const changed = title.length > 1 || body.length > 1;
           return (
-            <tr
+            <TableRow
               key={"ROW_" + index}
-              className={changed ? "highlight" : ""}
-              data-user={item.userId}
-            >
-              <td className="centered">{item.id}</td>
-              <td>
-                {title.map((item) => {
-                  return item;
-                })}
-              </td>
-              <td>
-                {body.map((item) => {
-                  return item;
-                })}
-              </td>
-            </tr>
+              index={index}
+              changed={changed}
+              id={item.id}
+              userId={item.userId}
+              title={title}
+              body={body}
+            />
           );
         })}
       </tbody>
@@ -105,7 +139,7 @@ const Table = () => {
       const index = parseInt(page) as number;
       setCurrent(index);
     } else {
-      setCurrent(1);
+      setCurrent(0);
     }
   }, [page, setCurrent]);
 

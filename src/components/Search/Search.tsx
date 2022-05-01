@@ -69,7 +69,6 @@ const Search = () => {
 
   const handleGoNextEnter = useCallback(
     (e: SyntheticEvent) => {
-      e.preventDefault();
       e.stopPropagation();
       const native = e.nativeEvent as KeyboardEvent;
       if (native.key === "Enter") {
@@ -91,7 +90,6 @@ const Search = () => {
 
   const handleRowPerPage = useCallback(
     (e: SyntheticEvent) => {
-      e.preventDefault();
       e.stopPropagation();
       const item = e.target as HTMLSelectElement;
       dispatch(setRowsCount(Number(item.value)));
