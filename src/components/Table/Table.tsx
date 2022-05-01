@@ -31,7 +31,6 @@ interface ITableRowComponent {
 }
 
 const TableRow = ({
-  index,
   changed,
   id,
   userId,
@@ -56,6 +55,8 @@ const TableRow = ({
     </tr>
   );
 };
+
+const MemoTableRow = React.memo(TableRow);
 
 interface ITableContents {
   data: Array<TRawPost>;
@@ -87,8 +88,8 @@ const TableContents = ({ data, searchText }: ITableContents) => {
             : [item.body];
           const changed = title.length > 1 || body.length > 1;
           return (
-            <TableRow
-              key={"ROW_" + index}
+            <MemoTableRow
+              key={"ROW_" + item.id}
               index={index}
               changed={changed}
               id={item.id}
