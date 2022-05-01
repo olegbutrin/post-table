@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback, useEffect, useState } from "react";
+import React, { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   setRowsCount,
@@ -126,4 +126,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default React.memo(Search);

@@ -1,4 +1,4 @@
-import { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useCallback } from "react";
 import {
   setSortDirection,
   setSortType,
@@ -15,23 +15,27 @@ const SortHeader = ({ name, sort }: ISortHeaderComponent) => {
   const dispatch = useDispatch();
   const { sortType, sortDirection } = useSelector((store) => store.app);
 
-  const handleSortType = (e: SyntheticEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dispatch(setSortType(sort));
-    dispatch(setSortDirection("asc"));
-  };
-
-  const handleSortDirection = (e: SyntheticEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (sortDirection === "asc") {
-      dispatch(setSortDirection("desc"));
-    }
-    if (sortDirection === "desc") {
+  const handleSortType = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation();
+      dispatch(setSortType(sort));
       dispatch(setSortDirection("asc"));
-    }
-  };
+    },
+    [sort, dispatch]
+  );
+
+  const handleSortDirection = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation();
+      if (sortDirection === "asc") {
+        dispatch(setSortDirection("desc"));
+      }
+      if (sortDirection === "desc") {
+        dispatch(setSortDirection("asc"));
+      }
+    },
+    [sortDirection, dispatch]
+  );
 
   return (
     <div
@@ -48,4 +52,4 @@ const SortHeader = ({ name, sort }: ISortHeaderComponent) => {
   );
 };
 
-export default SortHeader;
+export default React.memo(SortHeader);

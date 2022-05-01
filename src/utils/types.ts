@@ -24,7 +24,6 @@ export type TSortType = "id" | "title" | "body";
 
 export type TSortDirection = "asc" | "desc";
 
-
 export type TAppstore = {
   sortType: TSortType;
   sortDirection: TSortDirection;

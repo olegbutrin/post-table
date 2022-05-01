@@ -7,6 +7,20 @@ import Pager from "../Pager/Pager";
 
 import "./Table.scss";
 
+const textHiglight = (text: string, searchText: string, className: string) => {
+  return text.split(searchText).reduce((arr: Array<any>, item, index, src) => {
+    arr.push(item);
+    if (index < src.length - 1) {
+      arr.push(
+        <span key={"ST_" + index} className={className}>
+          {searchText}
+        </span>
+      );
+    }
+    return arr;
+  }, []);
+};
+
 interface ITableRowComponent {
   index: number;
   changed: boolean;
@@ -26,7 +40,9 @@ const TableRow = ({
 }: ITableRowComponent) => {
   return (
     <tr className={changed ? "highlight" : ""} data-user={userId}>
-      <td key={"RC_ID"} className="centered">{id}</td>
+      <td key={"RC_ID"} className="centered">
+        {id}
+      </td>
       <td key={"RC_TITLE"}>
         {title.map((item) => {
           return item;
@@ -64,34 +80,10 @@ const TableContents = ({ data, searchText }: ITableContents) => {
       <tbody>
         {data.map((item, index) => {
           const title = searchText
-            ? item.title
-                .split(searchText)
-                .reduce((arr: Array<any>, item, index, src) => {
-                  arr.push(item);
-                  if (index < src.length - 1) {
-                    arr.push(
-                      <span key={"ST_" + index} className="search">
-                        {searchText}
-                      </span>
-                    );
-                  }
-                  return arr;
-                }, [])
+            ? textHiglight(item.title, searchText, "search")
             : [item.title];
           const body = searchText
-            ? item.body
-                .split(searchText)
-                .reduce((arr: Array<any>, item, index, src) => {
-                  arr.push(item);
-                  if (index < src.length - 1) {
-                    arr.push(
-                      <span key={"ST_" + index} className="search">
-                        {searchText}
-                      </span>
-                    );
-                  }
-                  return arr;
-                }, [])
+            ? textHiglight(item.body, searchText, "search")
             : [item.body];
           const changed = title.length > 1 || body.length > 1;
           return (
