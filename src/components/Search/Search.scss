@@ -1,10 +1,7 @@
 @import "../../styles/default.scss";
 
 .Search {
-  @extend %flexRow;
-  @extend %block;
-  justify-content: space-between;
-  margin: 0 0 16px 0;
+  display: block;
 }
 
 input[type="text"],
@@ -50,23 +47,3 @@ input::-webkit-input-placeholder {
   background-position: center;
   background-size: contain;
 }
-
-.rowPerPage {
-  @extend %flexRow;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: $pagerPage-size;
-}
-
-.rowPerPage > select {
-  font-size: $pagerPage-size;
-  padding: 4px 20px 4px 4px;
-}
-
-.rowPerPage > label {
-  vertical-align: top;
-  margin-right: 20px;
-  margin-left: 10px;
-}
-
-

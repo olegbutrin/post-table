@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useSelector } from "../../services/hooks";
-import { TRawPost } from "../../utils/types";
+import { TRawData, TRawPost } from "../../utils/types";
 import SortHeader from "../SortHerader/SortHeader";
 import Pager from "../Pager/Pager";
 
@@ -112,29 +111,17 @@ const TablePlaceholder = () => {
   );
 };
 
-const Table = () => {
-  const { posts } = useSelector((store) => store.posts);
-  const { sortType, sortDirection, searchText, rowCount } = useSelector(
+interface ITableComponent {
+  posts: TRawData;
+  rowCount: number;
+  current: number;
+  last: number;
+}
+
+const Table = ({posts, rowCount, current, last}: ITableComponent) => {
+  const { sortType, sortDirection, searchText } = useSelector(
     (store) => store.app
   );
-
-  const [last, setLast] = useState<number>(1);
-
-  useEffect(() => {
-    setLast(Math.ceil(posts.length / rowCount));
-  }, [posts.length, rowCount, setLast]);
-
-  const { page } = useParams<{ page?: string }>();
-  const [current, setCurrent] = useState<number>(0);
-
-  useEffect(() => {
-    if (page !== undefined && !isNaN(parseInt(page))) {
-      const index = parseInt(page) as number;
-      setCurrent(index);
-    } else {
-      setCurrent(0);
-    }
-  }, [page, setCurrent]);
 
   const [data, setData] = useState<Array<TRawPost>>([]);
 

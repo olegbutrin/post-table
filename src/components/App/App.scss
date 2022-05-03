@@ -15,6 +15,13 @@
   justify-content: flex-start;
 }
 
+.Row {
+  @extend %flexRow;
+  @extend %block;
+  justify-content: space-between;
+  margin: 0 0 16px 0;
+}
+
 .ErrorPlaceholder {
   font-size: $pagerText-size;
   line-height: $line-height;
