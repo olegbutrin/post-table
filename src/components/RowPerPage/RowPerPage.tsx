@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback } from "react";
+import React, { SyntheticEvent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { setRowsCount } from "../../services/actions/app.actions";
 import { useDispatch } from "../../services/hooks";
@@ -41,4 +41,4 @@ const RowPerPage = ({ rowCount }: IRowPerPageComponent) => {
   );
 };
 
-export default RowPerPage;
+export default React.memo(RowPerPage);
