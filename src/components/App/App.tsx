@@ -14,6 +14,7 @@ import Table from "../Table/Table";
 
 import "./App.scss";
 import RowPerPage from "../RowPerPage/RowPerPage";
+import Pager from "../Pager/Pager";
 
 const basename = "";
 
@@ -46,6 +47,7 @@ const Page = () => {
         <RowPerPage rowCount={rowCount} />
       </div>
       <Table posts={posts} rowCount={rowCount} current={current} last={last} />
+      <Pager current={current} last={last} />
     </>
   );
 };

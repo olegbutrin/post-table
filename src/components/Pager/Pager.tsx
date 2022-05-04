@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Pager.scss";
 
@@ -45,4 +46,4 @@ const Pager = ({ current, last }: IPagerComponent) => {
   );
 };
 
-export default Pager;
+export default React.memo(Pager);

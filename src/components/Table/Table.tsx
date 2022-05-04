@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "../../services/hooks";
 import { TRawData, TRawPost } from "../../utils/types";
 import SortHeader from "../SortHerader/SortHeader";
-import Pager from "../Pager/Pager";
 
 import "./Table.scss";
 
@@ -21,7 +20,6 @@ const textHiglight = (text: string, searchText: string, className: string) => {
 };
 
 interface ITableRowComponent {
-  index: number;
   changed: boolean;
   id: number;
   userId: number;
@@ -89,7 +87,6 @@ const TableContents = ({ data, searchText }: ITableContents) => {
           return (
             <MemoTableRow
               key={"ROW_" + item.id}
-              index={index}
               changed={changed}
               id={item.id}
               userId={item.userId}
@@ -162,7 +159,6 @@ const Table = ({posts, rowCount, current, last}: ITableComponent) => {
           <TablePlaceholder />
         )}
       </div>
-      <Pager current={current} last={last} />
     </>
   );
 };

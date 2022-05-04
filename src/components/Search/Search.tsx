@@ -29,8 +29,8 @@ interface ISearchComponent {
 const Search = ({ rowCount, current }: ISearchComponent) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { searchText } = useSelector((store) => store.app);
-  const { posts } = useSelector((store) => store.posts);
+  const searchText = useSelector((store) => store.app.searchText);
+  const posts = useSelector((store) => store.posts.posts);
 
   const handleChange = useCallback(
     (e: SyntheticEvent) => {
