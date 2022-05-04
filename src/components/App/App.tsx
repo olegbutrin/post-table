@@ -48,6 +48,15 @@ const Page = () => {
       </div>
       <Table posts={posts} rowCount={rowCount} current={current} last={last} />
       <Pager current={current} last={last} />
+      <div className="sourceLink">
+        <a
+          href="https://github.com/olegbutrin/post-table"
+          target={"_blank"}
+          rel="noreferrer"
+        >
+          [source code]
+        </a>
+      </div>
     </>
   );
 };
@@ -85,15 +94,6 @@ const App = () => {
         {request && <Spinner />}
         {!request && error && <ErrorContents />}
         {!request && !error && <RoutedContents />}
-      </div>
-      <div className="sourceLink">
-        <a
-          href="https://github.com/olegbutrin/post-table"
-          target={"_blank"}
-          rel="noreferrer"
-        >
-          [source code]
-        </a>
       </div>
     </div>
   );
