@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap");
+
+$text-size: 13px;
+$header-size: 14px;
+$pagerPage-size: 18px;
+$pagerText-size: 24px;
+$line-height: 137.69%;
+
+$small: 560px;
+$large: 1080px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: ($small + 1)) and (max-width: ($large - 1)) {
+      @content;
+    }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  }
+}
+
+%block {
+  @include respond-to(handhelds) {
+    width: 100%;
+  }
+  @include respond-to(medium-screens) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include respond-to(wide-screens) {
+    width: $large;
+  }
+}
+
+%textLink {
+  @include respond-to(handhelds) {
+    padding: 0 0;
+  }
+  @include respond-to(medium-screens) {
+    padding: 0 0;
+  }
+  @include respond-to(wide-screens) {
+    padding: 0 32px;
+  }
+}
+
+$tableHeight: 56vh;
+
+$gray: #474955;
+$green: #7ebc3c;
+$searchbg: #5a5c66;
+$searchtxt: #b2b7bf;
+$alert: red;
+$highlight: #eeeeee;
+
+$border: 1px solid #e3e6ec;
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%flexRow {
+  display: flex;
+  flex-direction: row;
+}

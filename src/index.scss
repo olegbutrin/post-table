@@ -1,0 +1,15 @@
+@import "./styles/default.scss";
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: $text-size;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
